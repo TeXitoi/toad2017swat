@@ -111,8 +111,7 @@
 
 \section{Problématique}
 
-\begin{frame}
-  \frametitle{Problématique}
+\begin{frame}{Problématique}
 
   Problème du transport en commun en demande faible:
   \begin{itemize}
@@ -137,24 +136,94 @@
 
 \section{Simulation}
 
-\begin{frame}
-  \frametitle{Vision voyageur}
+\begin{frame}{Vision voyageur}
 
-  cf exemple
+  \begin{itemize}[<+->]
+  \item Alice veut aller du 20 rue Hector Malot à la Tour Eiffel, elle
+    le saisie dans l'interface. Il est 03h37.
+  \item L'IHM lui propose de monter dans le transport au 44 boulevard
+    Diderot à 03h45, et qu'elle arrivera au 3 avenue de Suffren avant
+    04h45.
+  \item Alice accepte la proposition, elle est à l'heure au point de
+    rendez-vous.
+  \item Le véhicule arrive à 03h52. Bob est déjà dans le véhicule.
+  \item À 04h18, Bob descend 108 boulevard de Grenelle.
+  \item À 04h20, Cunégonde monte au 129 boulevard de Grenelle.
+  \item Alice descend à 04h31 au 3 avenue de Suffren.
+  \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Vision conducteur}
+\begin{frame}[allowframebreaks]{Vision conducteur}
+  Le conducteur a une liste d'étape à réaliser avec les
+  montées/descentes, se modifiant en temps réel:\framebreak
+
+  À 03h17:
+  \begin{itemize}
+  \item 03h34, 158 rue de Bagnolet, Bob monte
+  \item 04h13, 108 rue de Grenelle, Bob descend
+  \end{itemize}\framebreak
+
+  À 03h34, Bob monte:
+  \begin{itemize}
+  \item<42> 03h34, 158 rue de Bagnolet, Bob monte
+  \item 04h13, 108 rue de Grenelle, Bob descend
+  \end{itemize}\framebreak
+
+  À 03h37, Alice fait sa réservation:
+  \begin{itemize}
+  \item \textbf{03h52, 44 boulevard Diderot, Alice monte}
+  \item \textbf{04h18,} 108 rue Grenelle, Bob descend
+  \item \textbf{04h25, 3 avenue de Suffren, Alice descend}
+  \end{itemize}\framebreak
+
+  À 03h52, Alice monte:
+  \begin{itemize}
+  \item<42> 03h52, 44 boulevard Diderot, Alice monte
+  \item 04h18, 108 rue Grenelle, Bob descend
+  \item 04h25, 3 avenue de Suffren, Alice descend
+  \end{itemize}\framebreak
+
+  À 04h07, Cunégonde fait sa réservation:
+  \begin{itemize}
+  \item 04h18, 108 boulevard Grenelle, Bob descend
+  \item \textbf{04h20, 129 boulevard de Grenelle, Cunégonde monte}
+  \item \textbf{04h31,} 3 avenue de Suffren, Alice descend
+  \item \textbf{05h14, 3 Avenue Gambetta, Cunégonde descend}
+  \end{itemize}\framebreak
+
+  À 04h18, Bob descend:
+  \begin{itemize}
+  \item<42> 04h18, 108 boulevard Grenelle, Bob descend
+  \item 04h20, 129 boulevard de Grenelle, Cunégonde monte
+  \item 04h31, 3 avenue de Suffren, Alice descend
+  \item 05h14, 3 Avenue Gambetta, Cunégonde descend
+  \end{itemize}\framebreak
+
+  À 04h20, Charlotte monte:
+  \begin{itemize}
+  \item<42> 04h20, 129 boulevard de Grenelle, Cunégonde monte
+  \item 04h31, 3 avenue de Suffren, Alice descend
+  \item 05h14, 3 Avenue Gambetta, Cunégonde descend
+  \end{itemize}\framebreak
+
+  À 04h31, Alice descend:
+  \begin{itemize}
+  \item<42> 04h31, 3 avenue de Suffren, Alice descend
+  \item 05h14, 3 Avenue Gambetta, Cunégonde descend
+  \end{itemize}\framebreak
+
+  À 05h14, Cunégonde descend:
+  \begin{itemize}
+  \item<42> 05h14, 3 Avenue Gambetta, Cunégonde descend
+  \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Comment ça marche: les grandes idées}
+\begin{frame}{Comment ça marche: les grandes idées}
 \end{frame}
 
 \section{Business Model}
 
-\begin{frame}
-  \frametitle{Business Model}
+\begin{frame}{Business Model}
 
   Nos clients: les transporteurs
   \begin{itemize}
@@ -166,8 +235,7 @@
 
 \section{La concurrence}
 
-\begin{frame}
-  \frametitle{La concurrence}
+\begin{frame}{La concurrence}
 
   \begin{itemize}
   \item uber pool, allygator shuttle...: solution orthogonal sur le
@@ -179,8 +247,7 @@
 
 \section{Roadmap}
 
-\begin{frame}
-  \frametitle{Roadmap}
+\begin{frame}{Roadmap}
   Avant le SWAT:
   \begin{itemize}
   \item Prise de contact avec des transporteur dans l'optique d'avoir
@@ -206,8 +273,7 @@
 
 \section{Conclusion}
 
-\begin{frame}
-  \frametitle{Conclusion}
+\begin{frame}{Conclusion}
 \end{frame}
 
 \begin{frame}
