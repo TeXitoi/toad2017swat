@@ -87,20 +87,20 @@
 
 %% Delete this, if you do not want the table of contents to pop up at
 %% the beginning of each subsection:
-\AtBeginSection[]
-{
-  \begin{frame}<beamer>
-    \frametitle{Table des matières}
-    \tableofcontents[currentsection,hideothersubsections]
-  \end{frame}
-}
-\AtBeginSubsection[]
-{
-  \begin{frame}<beamer>
-    \frametitle{Table des matières}
-    \tableofcontents[currentsection,subsectionstyle=show/shaded/hide]
-  \end{frame}
-}
+% \AtBeginSection[]
+% {
+%   \begin{frame}<beamer>
+%     \frametitle{Table des matières}
+%     \tableofcontents[currentsection,hideothersubsections]
+%   \end{frame}
+% }
+% \AtBeginSubsection[]
+% {
+%   \begin{frame}<beamer>
+%     \frametitle{Table des matières}
+%     \tableofcontents[currentsection,subsectionstyle=show/shaded/hide]
+%   \end{frame}
+% }
 
 
 \begin{document}
@@ -112,25 +112,35 @@
 \section{Problématique}
 
 \begin{frame}{Problématique}
-
-  Problème du transport en commun en demande faible:
+  Problème du transport en commun en demande faible (zone peu dense,
+  heures creuses, service de nuit):
   \begin{itemize}
   \item mauvais service pour le voyageur
   \item coût élevé pour le transporteur
   \end{itemize}
 
-  Notre but:
-  \begin{itemize}
-  \item améliorer la qualité de service pour le voyageur
-  \item optimiser les ressources pour les transporteurs
-  \end{itemize}
+  \begin{quote}
+    46\% des français en zone rurale se jugent loin de tout. Il faut
+    travailler sur ces zones, notamment avec la mobilité partagée ---
+    H.~Richard
+  \end{quote}
+\end{frame}
 
-  Notre moyen d'y parvenir:
+\begin{frame}{La solution}
+  La \emph{responsive locomotion}
+
+  \begin{center}
+    \includegraphics[width=0.4\linewidth]{images/toad}
+
+    Transport Optimisé À la Demande
+  \end{center}
+\end{frame}
+
+\begin{frame}{Le principe}
+  Les réservations sont intégrées en prenant une marge pour
   \begin{itemize}
-  \item répondre en temps réel aux demandes de voyageur
-  \item transporter le voyageur où il le souhaite
-  \item mutualiser les courses sans pénaliser le temps de trajet
-  \item être flexible sur les types de véhicule utilisés
+  \item prendre en compte les futurs réservations
+  \item s'adapter en temps réel à la réalité du terrain
   \end{itemize}
 \end{frame}
 
@@ -153,94 +163,26 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Vision conducteur}
-  Le conducteur a une liste d'étape à réaliser avec les
-  montées/descentes, se modifiant en temps réel:\framebreak
-
-  À 03h17:
-  \begin{itemize}
-  \item 03h34, 158 rue de Bagnolet, Bob monte
-  \item 04h13, 108 rue de Grenelle, Bob descend
-  \end{itemize}\framebreak
-
-  À 03h34, Bob monte:
-  \begin{itemize}
-  \item<42> 03h34, 158 rue de Bagnolet, Bob monte
-  \item 04h13, 108 rue de Grenelle, Bob descend
-  \end{itemize}\framebreak
-
-  À 03h37, Alice fait sa réservation:
-  \begin{itemize}
-  \item \textbf{03h52, 44 boulevard Diderot, Alice monte}
-  \item \textbf{04h18,} 108 rue Grenelle, Bob descend
-  \item \textbf{04h25, 3 avenue de Suffren, Alice descend}
-  \end{itemize}\framebreak
-
-  À 03h52, Alice monte:
-  \begin{itemize}
-  \item<42> 03h52, 44 boulevard Diderot, Alice monte
-  \item 04h18, 108 rue Grenelle, Bob descend
-  \item 04h25, 3 avenue de Suffren, Alice descend
-  \end{itemize}\framebreak
-
+\begin{frame}{Vision conducteur}
   À 04h07, Cunégonde fait sa réservation:
   \begin{itemize}
   \item 04h18, 108 boulevard Grenelle, Bob descend
   \item \textbf{04h20, 129 boulevard de Grenelle, Cunégonde monte}
-  \item \textbf{04h31,} 3 avenue de Suffren, Alice descend
+  \item 04h25\textbf{+6,} 3 avenue de Suffren, Alice descend
   \item \textbf{05h14, 3 Avenue Gambetta, Cunégonde descend}
-  \end{itemize}\framebreak
-
-  À 04h18, Bob descend:
-  \begin{itemize}
-  \item<42> 04h18, 108 boulevard Grenelle, Bob descend
-  \item 04h20, 129 boulevard de Grenelle, Cunégonde monte
-  \item 04h31, 3 avenue de Suffren, Alice descend
-  \item 05h14, 3 Avenue Gambetta, Cunégonde descend
-  \end{itemize}\framebreak
-
-  À 04h20, Cunégonde monte:
-  \begin{itemize}
-  \item<42> 04h20, 129 boulevard de Grenelle, Cunégonde monte
-  \item 04h31, 3 avenue de Suffren, Alice descend
-  \item 05h14, 3 Avenue Gambetta, Cunégonde descend
-  \end{itemize}\framebreak
-
-  À 04h31, Alice descend:
-  \begin{itemize}
-  \item<42> 04h31, 3 avenue de Suffren, Alice descend
-  \item 05h14, 3 Avenue Gambetta, Cunégonde descend
-  \end{itemize}\framebreak
-
-  À 05h14, Cunégonde descend:
-  \begin{itemize}
-  \item<42> 05h14, 3 Avenue Gambetta, Cunégonde descend
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Comment ça marche: les grandes idées}
+\section{Une opportunité pour Keolis}
+
+\begin{frame}{Une opportunité pour Keolis}
+
   \begin{itemize}
-  \item une requête de réservation est de la forme \emph{heure de
-      départ, origine, destination}
-  \item lors de la réception d'une requête, le système calcule une heure
-    d'arrivée au plus tard en fonction du temps de trajet direct
-  \item le moteur vérifie la possibilité de satisfaire la demande
-  \item si c'est possible, la demande est proposée
-  \item à l'acceptation de la demande, elle devient une réservation
-  \item à tout moment, les tournées peuvent être modifiées pour
-    améliorer le plan de transport.
-  \end{itemize}
-\end{frame}
-
-\section{Business Model}
-
-\begin{frame}{Business Model}
-
-  Nos clients: les transporteurs
-  \begin{itemize}
-  \item orthogonal au marché saturé des VTC
-  \item les clients actuels de Kisio sont des clients potentiels
-  \item les clients de TOAD sont des clients potentiels pour Kisio
+  \item gain d'image
+  \item amélioration de service pour l'usager
+  \item compétitivité vis à vis de son AO
+  \item maîtrise complète de la solution
+  \item amélioration de la connaissance des usages
   \end{itemize}
 \end{frame}
 
@@ -248,16 +190,23 @@
 
 \begin{frame}{La concurrence}
 
-  \begin{itemize}
-  \item uber pool, allygator shuttle...: solution orthogonal sur le
+  \begin{description}
+  \item[uberPOOL] solution orthogonal sur le
     modèle classique VTC
-  \item padam: après un essai avec sa propre flotte, revente de la
-    solution logiciel
-  \item bestmile: spécialisé véhicule autonome, cible les
-    transporteurs, sites privés, opérateurs de taxi, constructeurs de
-    véhicules
-  \item via: partenariat avec LeCab sur Paris, principalement modèle
-    classique VTC mais démarche également les transporteurs
+  \item[Citymapper Smartbus] flotte propre
+  \item[bestmile] spécialisé véhicule autonome
+  \item[padam] après un essai avec sa propre flotte, revente de la
+    solution logicielle
+  \item[LeCab Plus] zone à forte demande, dépendance en un tiers
+  \end{description}
+\end{frame}
+
+\section{Business Model}
+
+\begin{frame}{Business Model}
+  \begin{itemize}
+  \item modèle SAAS tout comme le modèle Kisio Digital
+  \item projet éligible au crédit impôt recherche
   \end{itemize}
 \end{frame}
 
@@ -266,26 +215,21 @@
 \begin{frame}{Roadmap}
   Avant le SWAT:
   \begin{itemize}
-  \item prise de contact avec des transporteur dans l'optique d'avoir
-    un jeu de donnée réaliste pour simulation
+  \item prise de contact avec des filiales pour avoir une vision
+    réaliste du terrain
   \end{itemize}
 
   Pendant le SWAT, en parallèle et incrémental
   \begin{itemize}
-  \item création/amélioration/analyse du jeu de donnée de simulation
+  \item réalisation d'une étude comparative de notre proposition avec
+    les solutions actuelles
   \item création du moteur de génération de tournée
   \item création de l'API
   \item création des IHM voyageurs, conducteurs et supervision
   \end{itemize}
-  
-  Après le SWAT
-  \begin{itemize}
-  \item présentation aux clients potentiel
-  \item simulations de cas réels de ces clients
-  \item expérimentations
-  \item ...
-  \end{itemize}
 \end{frame}
+
+%% et l'équipe
 
 \section{Conclusion}
 
